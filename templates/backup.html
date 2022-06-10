@@ -1,20 +1,47 @@
 {% extends "basepag.html" %}
+{% load static %}
 {% block content %}
-
-<form action="" method="POST">
-  <h1>GENERAR COPIA DE SEGURIDAD</h1>
-  {% csrf_token %}
-  {% for modelo  in modelos %}
+<div class="flex justify-around mt-[50px]">
   
-    <input type="checkbox" name="modelos_lista" value="{{modelo.verbose_name}}" id="">
-    <label for="modelos_lista">{{modelo.verbose_name}}</label>
-    
-  {% endfor %}
-  <input type="submit" value="Enviar">
-</form>
-<form action="" method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  <input type="file" name="archivo" id="">
-  <input type="submit" value="Enviar">
-</form>
-{% endblock content %}
+  <form method="POST">
+    <div class="w-auto max-w-sm bg-white border border-gray-200 rounded-lg shadow-md dark:bg-gray-800 dark:border-gray-700">
+      <div class="p-7">
+        <img class="w-[15rem] mx-[50px]" src="{% static 'img/logo.png' %}" alt="" />
+          <h1 class="flex justify-center text-xl font-bold ">GENERAR COPIA DE SEGURIDAD</h1>
+        <p class="inline-flex mb-3 font-normal text-gray-700 dark:text-gray-400">Marque las casillas segun las tablas a las que desea generar una copia.</p>
+      </div>
+      
+      <button id="dropdownLeftButton" data-dropdown-toggle="dropdownLeft" data-dropdown-placement="top" class="md:mb-0 text-white bg-blue-700 hover:bg-blue-800 mx-36  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Click</button>
+      
+      <!-- Dropdown menu -->
+      <div class="flex justify-center mt-4">
+        
+        <div id="dropdownLeft" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700">
+          <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLeftButton">
+            <li>
+              {% for modelo  in modelos %}
+              <div class="flex flex-wrap items-center justify-start gap-2 row-2">
+                <input type="checkbox" name="modelos_lista" value="{{modelo.verbose_name}}" class="flex w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" id="">
+                <div class="flex justify-center">
+                  <label for="modelos_lista">{{modelo.verbose_name}}</label>
+                </div>
+              </div>
+              
+              {% endfor %}
+            </li>
+            
+          </div>
+        </div>
+        {% csrf_token %}
+        <input class="mx-28 text-white w-36 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"  type="submit" value="Enviar">
+      </form>
+      <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="archivo" id="">
+        <div class="mt-4">  
+          <input type="submit" class="mx-28 text-white w-36 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" value="Enviar">
+        </div>
+      </form>
+    </div>
+  </div>
+    {% endblock content %}
