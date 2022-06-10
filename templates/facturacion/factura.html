@@ -1,88 +1,47 @@
 {% extends "basepag.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
 {% block title %}
-Usuario
+Factura
 {% endblock title  %}
 
 
 {% block navbar %}
-{% include "components/navbar.html" %} 
+{% include "components/navbar.html" %}
 {% endblock navbar %}
-<body>
-    <div class="h-screen rounded flex items-center justify-center bg-slate-900">
-        <card class=" border p-4 rounded bg-white shadow-2xl">
+
+{% block body %}
+  
+
+{% block content %}
+<div class="rounded flex items-center justify-center">
+        <div class="flex flex-col items-center pb-10">
+            <img class="mb-3 w-24 h-24 rounded-full shadow-lg" src="{% static 'img/logo.png'%}" alt="output-onlinepngtools">MigueAutos</a>
             <p class="text-center text-gray-700 font-light font-bold mt-5 mb-5 ">Factura #:</p>
             <p class="text-center text-gray-700 font-light font-bold mt-5 mb-5 ">Reporte de factura</p>
-            <!-- Logo -->
-          <div class="w-full">
-            <img  src="../src\img\output-onlinepngtools.png" class="w-30 mx-auto block"/>
-          </div>
-          <!-- Description -->
-          <table class="static w-full text-sm text-left text-gray-500 dark:text-gray-400">
-            <tbody>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                        Fecha:
-                    </th>
-                    <td class="px-6 py-4">
-                        12/04/2021
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                        Cliente:
-                    </th>
-                    <td class="px-6 py-4">
-                        Pedro Penguin
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                        Teléfono:
-                    </th>
-                    <td class="px-6 py-4">
-                        3607894956
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                        Numero Placa:
-                    </th>
-                    <td class="px-6 py-4">
-                        SLW-224
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                        Modelo:
-                    </th>
-                    <td class="px-6 py-4 ">
-                        2017
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
-                    <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                        Servicio:
-                    </th>
-                    <td class="px-6 py-4 ">
-                        Latoneria
-                    </td>
-                </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 ">
-                    <th scope="row " class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap ">
-                        Pago total:
-                    </th>
-                    <td class="px-6 py-4 ">
-                        300.000
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        </card>
-        
-    </div>
+            <div class="w-full py-5 my-1 overflow-hidden sm:my-2 sm:px-2 sm:w-full md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-2 xl:px-2 xl:w-1/2">
 
+                        
+                        
+                        
+                            
+                            <form class="text-black" enctype="multipart/form-data" method="POST">
+                                {% csrf_token %}
+                                {{ factura|crispy}}
+                                
+                                <div class="flex justify-center">
+                                    <button type="submit"
+                                    class=" text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800"
+                                    value="Enviar informacion">
+                                    AGREGAR
+                                    </button>
+                                </div>
+                            </form>
+                    
+            </div>
+        </div>
+    
+</div>
 
-    <!--  -->
-
-</body>
-</html>
+{% endblock content %}
+{% endblock body %}
