@@ -1,0 +1,91 @@
+{% load tailwind_tags %}
+{% load static %}
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  {% tailwind_css %}
+  {% load i18n %}
+  {% load account socialaccount %}
+  {% load tailwind_filters %}
+  <title>MigueAutos</title>
+</head>
+
+
+<body>
+  
+  <div>
+    <div class="relative grid min-h-screen bg-black">
+      <div
+      class="flex flex-col items-center flex-auto min-w-0 sm:flex-row md:items-start sm:justify-center md:justify-start">
+      <div
+      class="w-full p-8 md:flex md:items-center md:justify-left sm:w-auto md:h-3/4 xl:w-1/2 md:p-10 lg:pt-14 sm:rounded-lg md:rounded-none">
+      <div class="w-full max-w-xl space-y-12">
+        <div class="text-center lg:text-left">
+          <div class="flex items-center justify-center">
+            <div class="flex flex-col px-8 bg-black rounded-lg w-80">
+              <form [formGroup]="createaccount"  method="POST" action="{% url 'account_login' %}" class="flex flex-col pb-6 mt-10 space-y-8">
+                    {% if messages %}
+                    <div id="toast-warning" class="flex items-center w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
+                      <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-700 dark:text-orange-200">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <div class="ml-3 text-sm font-normal">
+                        {% for message in messages %}
+                        
+                        <li>{{message}}</li>
+                        {% endfor %}
+                    </div>
+                    <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-warning" aria-label="Close">
+                      <span class="sr-only">Close</span>
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  </button>
+                    </div>
+                    {% endif %}
+                    {% csrf_token %}
+                    {{ form|crispy}}
+                    
+                    <button
+                      type="submit" class="py-3 font-semibold text-white bg-black border border-indigo-600 rounded-lg"
+                       routerLink="/dashboard">
+                      Iniciar sesión
+                    </button>
+                    <button
+                      type="submit" class="py-3 font-semibold text-white bg-black border border-indigo-600 rounded-lg"
+                       routerLink="/dashboard">
+                      <a class="py-3 font-semibold text-white bg-black rounded-lg"
+                      href="{% url 'account_signup' %}">Crear cuenta</a>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="
+        background-image: url({% static 'img/fondo.png'%});
+      " class="relative items-center justify-center flex-auto hidden h-full p-10 overflow-hidden text-white bg-blue-500 bg-no-repeat bg-cover sm:w-1/2 xl:w-3/5 md:flex">
+
+          <div class="absolute inset-0 z-0 bg-black opacity-25"></div>
+          <div class="z-10 items-center w-full text-center lg:max-w-2xl md:max-w-md">
+            <div class="items-center content-center w-full mx-auto mb-6 font-bold leading-tight"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script src="{% static 'js/libs/flowbite.js' %}"></script>
+</body>
+
+
+<footer>
+  {% include 'components/footer.html' %}
+</footer>
+
+
+
+</html>

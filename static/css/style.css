@@ -1,0 +1,60 @@
+body {
+    margin: 0%;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+}
+
+
+.acces {
+    position:fixed;
+    top: 54%;
+    right: 20px;
+    width: 50px;
+}
+
+.acceslog {
+  position:fixed;
+  top: 54%;
+  right: 20px;
+  width: 50px;
+}
+
+
+
+.acces_info {
+    position: fixed;
+    right: 0px;
+    top: 49%;
+    right: 5px;
+    width: 50px;
+}
+
+.modal {
+    transition: opacity 0.25s ease;
+  }
+
+
+body.modal-active {
+    overflow-x: hidden;
+    overflow-y: visible !important;
+}
+.f0 {
+    font-size: 0.8rem;
+  }
+  .f1 {
+    font-size: 0.9rem;
+  }
+  .f2 {
+    font-size: 1rem;
+  }
+  .f3 {
+    font-size: 1.1rem;
+  }
+  .f4 {
+    font-size: 1.2rem;
+  }
+.dark-mode{
+    background-color:rgba(0, 0, 0, 0.822);
+    color:#fff;
+}

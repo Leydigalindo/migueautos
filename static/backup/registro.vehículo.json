@@ -1,0 +1,32 @@
+[
+{
+    "model": "registro.vehículo",
+    "pk": 7,
+    "fields": {
+        "placa": "try",
+        "fecha": "2022-05-23",
+        "modelo": "20054",
+        "color": "rojo",
+        "estado": "B",
+        "usuario": null
+    }
+},
+{
+    "model": "registro.vehículo",
+    "pk": 10,
+    "fields": {
+        "placa": "asd-852",
+        "fecha": "2022-05-23",
+        "modelo": "2004",
+        "color": "rojo",
+        "estado": "B",
+        "usuario": null
+    }
+}
+]
+[]
+[]
+[<Options for Servicio>]
+[<Options for Servicio>]
+[<Options for Servicio>]
+[<Options for Servicio>]

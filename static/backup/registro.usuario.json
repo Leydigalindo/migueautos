@@ -1,0 +1,22 @@
+[
+{
+    "model": "registro.usuario",
+    "pk": 36,
+    "fields": {
+        "nombre": "maribel",
+        "apellido": "Alfaro",
+        "telefono": "3133140321",
+        "rol": "Cliente"
+    }
+},
+{
+    "model": "registro.usuario",
+    "pk": 38,
+    "fields": {
+        "nombre": "Joselin",
+        "apellido": "Alfaro",
+        "telefono": "3133140324",
+        "rol": "Cliente"
+    }
+}
+]

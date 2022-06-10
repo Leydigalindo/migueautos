@@ -1,0 +1,72 @@
+{% extends "basepag.html" %}
+{% block content %}
+
+    <div class="container mx-auto">
+        
+        <div class="text-center">
+            <h1 class="pt-5 text-3xl font-bold">
+                <span class=" dark:text-white text-sky-500">Manual de ayuda</span>
+                
+            </h1>
+            <p class="pt-5 text-3xl font-display">
+                        <span class="dark:text-text-gray-700 ">Bienvenido usuario, este espacio esta diseñado para mostrar el correcto funcionamiento de migueautos :D</span>
+                    </p>
+            </div>
+            
+            <div class="container flex flex-wrap justify-center gap-6 px-4 pt-10 pb-5 mx-auto ">
+            
+                <div  class="block p-6 bg-white border border-gray-200 rounded-lg shadow-md max-w hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem ipsum dolor sit amet.</h5>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eum!.</p>
+                    
+                    </div>
+                
+                
+                    <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem ipsum dolor sit amet.</h5>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eum!.</p>
+                    </div>
+                
+                
+            
+                <div href="#" class="block p-6 bg-white border border-gray-200 rounded-lg shadow-md max-w hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem ipsum dolor sit amet.</h5>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eum!.</p>
+                </div>
+            
+            
+            
+                <div href="#" class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem ipsum dolor sit amet.</h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eum!.</p>
+            </div>
+            
+                <div href="#" class="block p-6 bg-white border border-gray-200 rounded-lg shadow-md max-w hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem ipsum dolor sit amet.</h5>
+                    <p class="font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eum!.</p>
+            </div>
+            
+                <div class="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Lorem ipsum dolor sit amet.</h5>
+                        <p class="font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis, eum!.</p>
+                </div>
+            
+           
+                <div  class="block max-w-screen-md p-6 mx-auto bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                    <small class="text-gray-900 text-clip dark:text-white">unicamente superusuario</small>
+                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Copia de seguridad base de datos.</h5>
+                        <p class="font-normal text-gray-700 dark:text-gray-700">Migueautos cuenta con una base de datos en la cual se guardan los registros de todas las tablas y esos datos(registros) son de suma importancia, por eso nuestro software cuenta con una copia de seguridad para que estos datos se puedan mantener a salvo y a la mano, si desea ir hacer una copia de seguridad tienes que seguir los siguientes pasos:</p>
+                            <ul class="text-black list-disc">
+                                    <li>Ingresar a este link : <a href="{% url 'backup' %}" class="text-blue-700 underline">Copia de seguridad</a></li>
+                                    <li>Selecciona las casillas de las que deseas realizar copia de seguridad
+                                    </li>
+                                    <li>Hacer click en enviar(desde ese momento ya se creo <span>No hacer click mas de una vez :)</span> )</li>
+                                    <li>Seleccionar la opción de copia de seguridad
+                                    </li>
+                            </ul>
+                    </div>
+            
+        </div>
+    </div>
+{% endblock content %}
