@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'crispy_forms', #python -m pip install django-crispy-forms
     "crispy_tailwind", #pip install crispy-tailwind
     'allauth', #python -m pip install django-allauth
-   
+    'compressor', # pip install django-compressor ==3.1
     
 ]
 
@@ -111,6 +111,12 @@ TEMPLATES = [
         },
     },
 ]
+
+COMPRESS_ROOT = BASE_DIR / 'static'
+
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
