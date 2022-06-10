@@ -31,8 +31,10 @@ def usuariodelete(request,id):
     usuario_db = Usuario.objects.all()
     txt_action = 'este usuario'
     formulario = usuarioForm()
-    if request.method == 'POST':
+    if request.method == 'POST' and 'form1' in request.POST:
         delete_user.delete()
+        return redirect ('usuario')
+    if request.method == 'POST' and 'form2' in request.POST:
         return redirect ('usuario')
     context = {'usuario_db': usuario_db, 'formulario': formulario,'txt_action': txt_action}
     return render (request,'register/deleteUser.html', context )

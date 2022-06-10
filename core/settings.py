@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'crispy_forms', #python -m pip install django-crispy-forms
     "crispy_tailwind", #pip install crispy-tailwind
     'allauth', #python -m pip install django-allauth
-   
     
 ]
 
@@ -111,6 +110,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
