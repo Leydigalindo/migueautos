@@ -9,11 +9,6 @@ class Usuario(models.Model):
     nombre = models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")
     apellido = models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Apellido")
     telefono = models.CharField(max_length=13, blank=True, unique=True, verbose_name="Numero de celular")
-    class Rol (models.TextChoices):
-        ADMINISTRADOR = 'Admin', _('ADMINSTRADOR')
-        TRABAJADOR = 'Trabajador', _('TRABAJADOR')
-        CLIENTE = 'Cliente', _('CLIENTE')
-    rol = models.CharField(max_length=10,choices=Rol.choices, verbose_name=u"Seleccione rol")
 
     def __str__(self) -> str:
         return '%s %s'%(self.nombre, self.apellido)

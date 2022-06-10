@@ -1,5 +1,6 @@
 {% extends "basepag.html" %}
 {% load crispy_forms_tags %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block title %}
 Usuario
@@ -64,9 +65,7 @@ Usuario
                                         <th scope="col" class="px-6 py-4 text-sm font-medium text-black">
                                             Telefono
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-sm font-medium text-black">
-                                            Rol
-                                        </th>
+                                        
                                         <th scope="col" class="px-6 py-4 text-sm font-medium text-black">
                                             Opciones
                                         </th>
@@ -91,9 +90,7 @@ Usuario
                                         <td class="px-6 py-4">
                                             {{usuario.telefono}}
                                         </td>
-                                        <td class="px-6 py-4">
-                                            {{usuario.rol}}
-                                        </td>
+                                        
                                         <td class="flex justify-around px-6 py-4 text-right">
                                             {% comment %} Editar {% endcomment %}
                                             <a href="{% url 'editarUsuario' usuario.id %}" data-modal-toggle="popup-modal"

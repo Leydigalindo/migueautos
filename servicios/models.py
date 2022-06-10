@@ -15,8 +15,7 @@ class Servicio(models.Model):
         return '%s'%(self.nombre)
 
 class Marca(models.Model):
-    nombre = models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")
-    
+    nombre= models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")    
     def __str__(self) -> str:
             return '%s'%(self.nombre)
 class Insumo(models.Model):
