@@ -17,7 +17,6 @@ class Servicio(models.Model):
 
 class Marca(models.Model):
     nombre= models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")
-    precio= models.DecimalField(default='100', verbose_name="Precio $", validators=[MinValueValidator(100)], max_digits=10, decimal_places= 4 )
     
     def __str__(self) -> str:
             return '%s'%(self.nombre)
