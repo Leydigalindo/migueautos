@@ -10,7 +10,7 @@ class Servicio(models.Model):
         EXCELENTE = 'Latoneria', _('Latoneria')
         REGULAR= 'Pintura', _('Pintura')
     tipodeservicio = models.CharField(max_length=10, choices=Tipodeservicio.choices, verbose_name=u"Seleccione el tipo de servicio")
-    descripcion= models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Descripción")
+    nombre= models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Descripción")
     def __self__(self) -> str:
         return '%s'%(self.nombre)
 
