@@ -47,18 +47,17 @@
                     {% endif %}
                     {% csrf_token %}
                     {{ form|crispy}}
+                    <a class="text-center text-blue-700" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
                     
                     <button
                       type="submit" class="py-3 font-semibold text-white bg-black border border-indigo-600 rounded-lg"
                        routerLink="/dashboard">
                       Iniciar sesión
                     </button>
-                    <button
-                      type="submit" class="py-3 font-semibold text-white bg-black border border-indigo-600 rounded-lg"
-                       routerLink="/dashboard">
-                      <a class="py-3 font-semibold text-white bg-black rounded-lg"
+                    
+                      <a class="py-3 font-semibold text-center text-white bg-black border border-indigo-600 rounded-lg"
                       href="{% url 'account_signup' %}">Crear cuenta</a>
-                    </button>
+                   
                   </form>
                 </div>
               </div>
