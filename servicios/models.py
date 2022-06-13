@@ -10,9 +10,8 @@ class Servicio(models.Model):
         EXCELENTE = 'Latoneria', _('Latoneria')
         REGULAR= 'Pintura', _('Pintura')
     tipodeservicio = models.CharField(max_length=10, choices=Tipodeservicio.choices, verbose_name=u"Seleccione el tipo de servicio")
-    descripcion= models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Descripción")
     def __self__(self) -> str:
-        return '%s'%(self.nombre)
+        return '%s'%(self.tipodeservicio)
 
 class Marca(models.Model):
     nombre= models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")    
@@ -20,9 +19,8 @@ class Marca(models.Model):
             return '%s'%(self.nombre)
 class Insumo(models.Model):
     nombre = models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")
-    cantidad= models.PositiveIntegerField(validators=[MinValueValidator(1)])
-    precioUnitario= models.IntegerField(default='0', verbose_name="Precio")
+    stock= models.PositiveIntegerField(validators=[MinValueValidator(1)])
     marca=models.ForeignKey(Marca,on_delete=models.SET_NULL, null=True,verbose_name=u"Marca")
-
+    precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=u"Precio")
     def __str__(self) -> str:
             return '%s'%(self.nombre)

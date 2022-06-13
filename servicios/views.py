@@ -5,7 +5,6 @@ from servicios.models import Insumo, Marca, Servicio
 # Create your views here.
 def servicio (request):
     servicio_db = Servicio.objects.all()
-   
     servicio = ServicioForm(request.POST or None, request.FILES or None)
 
     if servicio.is_valid():
