@@ -1,26 +1,19 @@
 from django.shortcuts import redirect, render
-from facturacion.forms import DetalleFacturaForm
+from facturacion.forms import FacturaForm
+from facturacion.models import Factura
+from django.contrib.auth.decorators import login_required
 
-from facturacion.models import DetalleFactura
-
-def detalleFactura(request):
-    detalle_db = DetalleFactura.objects.all()
-    detalle = DetalleFacturaForm(request.POST or None)
-    context = {
-        'detalle_db': detalle_db,	
-        'detalle': detalle,
-    }
-    return render (request, 'facturacion/detalleFactura.html', context)
-
-#def factura(request):
+@login_required(login_url='/login/')
+def factura(request):
     factura_db = Factura.objects.all()
-    formulario = FacturaForm(request.POST or None, request.FILES or None)
-    if formulario.is_valid():
-        formulario.save()
+    factura= FacturaForm(request.POST or None, request.FILES or None)
+    if factura.is_valid():
+        factura.save()
         return redirect('factura')
     context = {
         'factura_db': factura_db,	
-        'formulario': formulario,
+        'factura': factura,
     }
     return render (request, 'facturacion/factura.html', context)
+
 
