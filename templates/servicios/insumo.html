@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block title %}
-Marca
+Insumo
 {% endblock title  %}
 
 
@@ -20,7 +20,7 @@ Marca
     
     <div class="w-full py-5 my-1 overflow-hidden sm:my-2 sm:px-2 sm:w-full md:my-1 md:px-1 md:w-1/2 lg:my-1 lg:px-1 lg:w-1/2 xl:my-2 xl:px-2 xl:w-1/2">
                     <h1 class="px-2 mb-2 font-sans text-xl font-bold text-center break-normal dark:text-white lg:mt-0 md:text-2xl">
-                        Registro marca</h1>
+                        Registro insumo</h1>
                     <!--Card-->
                   <!-- form -->
                   
@@ -62,6 +62,9 @@ Marca
                                             <th scope="col" class="px-6 py-4 text-sm font-medium text-black">
                                                 Marca       
                                             </th>
+                                            <th scope="col" class="px-6 py-4 text-sm font-medium text-black">
+                                                precio       
+                                            </th>
                                             <th scope="col"class="px-6 py-4 text-sm font-medium text-black"> 
                                                 Opciones
                                             </th> 
@@ -77,13 +80,16 @@ Marca
                                         
                                         <th scope="row"
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
-                                            {{insumo.nombre}}
+                                        {{insumo.nombre}}
                                         </th>
                                         <td class="px-6 py-4">
                                         {{insumo.cantidad }}
                                         </td>
                                         <td class="px-6 py-4">
                                         {{insumo.marca }}
+                                        </td>
+                                        <td class="px-6 py-4">
+                                        {{insumo.precioUnitario }}
                                         </td>
                                         
                                         <td class="flex justify-around px-6 py-4 text-right">
