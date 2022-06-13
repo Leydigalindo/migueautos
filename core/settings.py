@@ -12,6 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -179,15 +183,25 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 #GESTION DE LOGUEOS
+
 LOGOUT_REDIRECT_URL = 'account_login'
 LOGIN_REDIRECT_URL = 'home'
-LOGIN_URL = 'vehiculo'
-
-
+LOGIN_URL = 'vehiculo',
+#Configuracion de django-allauth
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS =1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 
+ACCOUNT_USERNAME_REQUIRED = False
 #BACKEND PARA CORREOS ELECTRONICOS
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = env('EMAIL_HOST')
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 25
-EMAIL_HOST_USER = 'joselinalfaro71@gmail.com'
-EMAIL_HOST_PASSWORD = 'mamateamomucho0'
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = env('EMAIL_HOST_USER')
+
