@@ -4,8 +4,9 @@ body {
     min-height: 100vh;
     grid-template-rows: auto 1fr auto;
 }
-
-
+.acces1 {
+    visibility: visible;
+}
 .acces {
     position:fixed;
     top: 54%;
