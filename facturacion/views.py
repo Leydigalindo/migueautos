@@ -11,6 +11,8 @@ def factura(request):
     insumo = InsumoForm(request.POST or None, request.FILES or None)
     if factura.is_valid():
         factura.save()
+        print('factura abierta')
+
     context = {
         'factura': factura,
         'servicio': servicio,
