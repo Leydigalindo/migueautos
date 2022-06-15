@@ -6,3 +6,4 @@ class FacturaForm(forms.ModelForm):
     class Meta:
         model=Factura
         fields='__all__'
+        exclude = ['estado']
