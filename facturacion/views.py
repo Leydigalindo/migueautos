@@ -10,8 +10,6 @@ from servicios.views import insumo, servicio
 @login_required(login_url='/login/')
 def factura(request,pk=0):
     factura= FacturaForm(request.POST or None, request.FILES or None)
-    servicio = ServicioForm(request.POST or None, request.FILES or None)
-    insumo =  InsumoForm(request.POST or None, request.FILES or None)
     vehiculo_fac = ""
     if pk != 0: 
         vehiculo_fac = Factura.objects.get(id=pk) 
@@ -20,7 +18,7 @@ def factura(request,pk=0):
         factura.is_valid()
         aux = factura.save()
         pk = aux.id
-        vehiculo_fac = aux.vehículo
+        vehiculo_fac = pk.vehículo
         print('Factura abierta')
         return redirect ('factura',pk)
     
