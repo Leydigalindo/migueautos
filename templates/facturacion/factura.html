@@ -19,23 +19,31 @@ Factura
             <h1>Seleccione el usuario para generar su factura</h1>
         </div>
         <div>
-           <form action="">
-            {% csrf_token %}
-            <div id="div_id_usuario" class="mb-3"> <label for="id_usuario" class="block mb-2 text-sm font-bold text-gray-700">
-                Usuario<span class="asteriskField">*</span> </label> <div class="mb-3"> <div class="relative">
-    <select class="block w-full px-4 py-2 leading-normal text-gray-700 bg-white border border-gray-300 rounded-lg appearance-none focus:outline-none" name="usuario"> <option value="">---------</option> </select>
-    <div class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none"> <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path> </svg> </div>
-    </div>
-    </div> </div>
-            {{factura|crispy}}
+            <form action="">
+                {% csrf_token %}
+                <div id="div_id_usuario" class="container w-1/2 mx-auto"> 
+                    <label for="id_usuario" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-900">Usuario<span class="asteriskField">*</span> 
+                    </label>
+                    <div class="mb-3">
+                        <div class="relative">
+                            <select
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                value={{factura.usuario}} </select>
+                        </div>
+                    </div>
+                </div>
+                <button id="mostrar" type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Generar
+                    factura</button>
 
-           </form>
+
+            </form>
         </div>
     </div>
-    <div class="bg-gray-100">
+    <div class="hidden bg-gray-100">
         formulario1
     </div>
-    <div class="bg-gray-200">
+    <div class="hidden bg-gray-200">
         formulario1
     </div>
 
@@ -51,8 +59,8 @@ Factura
 
 <script>
     $(document).ready(function () {
-        $("#mostarservicio").on("click", function () {
-            $("").show();
+        $("#mostar").on("click", function () {
+            $(".hidden").show();
         });
 
     });
