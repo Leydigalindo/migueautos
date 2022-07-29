@@ -4,5 +4,5 @@ from facturacion.models import Factura
 
 class FacturaForm(forms.ModelForm):
     class Meta:
-        model=Factura
-        fields='__all__'
+        model = Factura
+        fields = ['Usuario','vehiculo']

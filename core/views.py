@@ -7,7 +7,8 @@ import sys
 from django.core import management
 from django.apps import apps
 from django.contrib.auth.decorators import login_required
-from core.forms import UploadForm
+from core.forms import UploadForm  
+ 
 
 def home(request):
     context={}

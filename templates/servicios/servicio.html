@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 {% load static %}
 {% block title %}
-Marca
+Servicio
 {% endblock title  %}
 
 
@@ -55,10 +55,6 @@ Marca
                                         <th scope="col" class="px-6 py-4 text-sm font-medium text-black">
                                             Tipo de Servicio
                                         </th>
-                                        <th scope="col" class="px-6 py-4 text-sm font-medium text-black">
-                                            Descripción
-                                        </th>
-                                        
                                         <th scope="col" class="flex px-6 py-4 text-sm font-medium text-center text-black">
                                             Opciones
                                         </th>
@@ -77,10 +73,6 @@ Marca
                                             class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                                             {{servicio.tipodeservicio}}
                                         </th>
-                                        <td class="px-6 py-4">
-                                            {{servicio.descripcion}} 
-                                        </td>
-                                        
                                         <td class="flex justify-around px-6 py-4 text-right">
                                             {% comment %} Editar {% endcomment %}
                                             <a href="{% url 'editarServicio' servicio.id %}"
