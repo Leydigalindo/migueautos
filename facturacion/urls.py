@@ -1,9 +1,10 @@
+
+from . import views
 from django.urls import path
 
-from facturacion.views import factura
 
 urlpatterns = [
-   path('factura/',factura, name='factura'),
-   path('factura/<int:pk>',factura, name='factura'),
-   # path('detalle-factura/<int:id>',detallefactura, name='detalle-factura'),
+    path ('factura/',views.factura, name='factura'),
+    path ('factura/eliminarfactura/<int:id>',views.eliminarFactura, name='eliminarfactura'),
+    path ('factura/editarfactura/<int:id>',views.editarFactura, name='editarFactura'),
 ]

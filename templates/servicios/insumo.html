@@ -34,10 +34,33 @@ Insumo
                             <button type="submit"
                             class=" text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800"
                             value="Enviar informacion">
-                            AGREGAR
+                            Agregar insumo
                         </button>
-                    </div>
+                    
                 </form>
+                    <!-- <button type="button"
+                    class=" text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800"
+                    value="Enviar informacion">
+                    
+                </button>
+                 -->
+                 <label for="my-modal-3" class="modal-button text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">Agregar marca</label>
+
+<!-- Put this part before </body> tag -->
+<input type="checkbox" id="my-modal-3" class="modal-toggle" />
+<div class="modal">
+  <div class="modal-box relative">
+    <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+    <h3 class="text-lg font-bold">¿Olvidaste registrar una marca?</h3>
+    <p class="py-4">Directamente puedes registrarla desde acá!</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{marca|crispy}}
+        <button type="submit" for="my-modal-3" class="modal-button text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">Agregar marca</button>
+    </form>
+  </div>
+</div>
+            </div>
             
             </div>
                
@@ -52,7 +75,6 @@ Insumo
                                 <thead
                                     class="text-xs text-center text-gray-700 uppercase bg-light-white dark:bg-gray-700 dark:text-gray-400">
                                     <tr>
-                                        
                                             <th scope="col" class="px-6 py-4 text-sm font-medium text-black">
                                                 Nombre
                                              </th>
@@ -68,8 +90,6 @@ Insumo
                                             <th scope="col"class="px-6 py-4 text-sm font-medium text-black"> 
                                                 Opciones
                                             </th> 
-
-
                                     </tr>
 
                                 </thead>
@@ -83,13 +103,13 @@ Insumo
                                         {{insumo.nombre}}
                                         </th>
                                         <td class="px-6 py-4">
-                                        {{insumo.stock }}
+                                        {{insumo.cantidad }}
                                         </td>
                                         <td class="px-6 py-4">
                                         {{insumo.marca }}
                                         </td>
                                         <td class="px-6 py-4">
-                                        {{insumo.precio }}
+                                        {{insumo.precioUnitario }}
                                         </td>
                                         
                                         <td class="flex justify-around px-6 py-4 text-right">

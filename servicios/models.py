@@ -7,23 +7,19 @@ from django.core.validators import MinValueValidator
 
 class Servicio(models.Model):
     class Tipodeservicio (models.TextChoices):
-        EXCELENTE = 'Latoneria', _('Latoneria')
-        REGULAR= 'Pintura', _('Pintura')
+        LATONERIA = 'Latoneria', _('Latoneria')
+        PINTURA= 'Pintura', _('Pintura')
     tipodeservicio = models.CharField(max_length=10, choices=Tipodeservicio.choices, verbose_name=u"Seleccione el tipo de servicio")
-    
-    def __self__(self) -> str:
-        return '%s'%(self.nombre)
-
+    v_trabajo = models.IntegerField(default=0)
 class Marca(models.Model):
     nombre= models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")    
     def __str__(self) -> str:
             return '%s'%(self.nombre)
-        
-        
 class Insumo(models.Model):
     nombre = models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")
-    stock= models.PositiveIntegerField(validators=[MinValueValidator(1)])
+    cantidad= models.PositiveIntegerField(validators=[MinValueValidator(1)])
+    precioUnitario= models.IntegerField(default='0', verbose_name="Precio")
     marca=models.ForeignKey(Marca,on_delete=models.SET_NULL, null=True,verbose_name=u"Marca")
-    precio = models.DecimalField(max_digits=10, decimal_places=2, blank=False, unique= False, verbose_name=u"Precio")
+
     def __str__(self) -> str:
-            return '%s'%(self.nombre)
+            return '%s %s'%(self.nombre, self.cantidad)

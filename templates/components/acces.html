@@ -1,9 +1,12 @@
 {% load static %}
+<div id="menu_verical" class="menu pointerCursor hide">
 
+
+</div>
 <div class="container flex justify-center mx-auto">
   <div x-data="{ open: false }" @mouseleave="open = false" class="relative">
       <!-- Dropdown toggle button -->
-      <button @mouseover="open = true" class="flex items-center p-2 rounded-t">
+      <button @mouseover="open = true" class="flex items-center p-2 bg-transparent rounded-t">
         <img src="{% static 'img/accessibility_white_24dp.svg'%}" alt=""/> 
       </button>
 

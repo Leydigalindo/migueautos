@@ -59,7 +59,7 @@
     
 
     <script type="text/javascript" src="{% static 'js/tabla.js' %}"></script>
-    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
     <script type="text/javascript" src="{% static 'js/carousel-code.js' %}"></script>
     
 
@@ -67,15 +67,19 @@
     <script type="text/javascript" src="{% static 'js/select2/select2.js' %}"></script>
     
     <script type="application/json" src="{% static 'js/toastr.js.map' %}"></script>
-
+    <script type="text/javascript" src="{% static 'js/facturacion.js' %}"></script> 
     <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script> 
     <script type="text/javascript" src="{% static 'js/select2/select2.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/open-accessibility/open-accessibility.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'js/open-accessibility/locale.min.js' %}"></script>
-    
+
+{% block scripts %}
+  
+{% endblock scripts %}
 {% block footers %}
 {% include 'components/footer.html' %}
 {% endblock footers %}
+
 </body>
 
 </html>

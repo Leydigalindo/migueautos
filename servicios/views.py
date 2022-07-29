@@ -1,10 +1,13 @@
 from django.shortcuts import render,redirect
 from servicios.forms import  InsumoForm, MarcaForm, ServicioForm
 from servicios.models import Insumo, Marca, Servicio
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url='/login/')
 def servicio (request):
     servicio_db = Servicio.objects.all()
+   
     servicio = ServicioForm(request.POST or None, request.FILES or None)
 
     if servicio.is_valid():
@@ -40,15 +43,27 @@ def eliminarServicio(request,id):
         return redirect ('servicio')  
     return render (request, 'servicios/deleteServicio.html',context)
 # lOGICA DE insumo (EDITAR ELIMINAR Y OTRAS FUNCIONES)
+@login_required(login_url='/login/')
 def insumo(request):
+    #recorrer datos de la base de datos
     insumo_db = Insumo.objects.all()
+    
+    
+    #formularios
+    marca = MarcaForm(request.POST or None)
     insumo = InsumoForm(request.POST or None, request.FILES or None)
+    #validar formularios
     if insumo.is_valid():
         insumo.save()
         return redirect('insumo')
+    if marca.is_valid():
+        marca.save()
+        return redirect('insumo')
+    #
     context = {
         'insumo_db': insumo_db,	
         'insumo': insumo,
+        'marca': marca,
     }
     return render (request, 'servicios/insumo.html', context)
 
@@ -77,6 +92,7 @@ def eliminarInsumo(request,id):
     return render (request, 'servicios/deleteinsumo.html',context)
 
 # LOGICA DE marca (EDITAR, ELIMINAR  Y OTRAS FUNCIONES)
+@login_required(login_url='/login/')
 def marca(request):
     marca_db = Marca.objects.all()
     marca = MarcaForm(request.POST or None)

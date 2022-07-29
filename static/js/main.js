@@ -31,6 +31,3 @@ const cuerpo = document.body;
 document.getElementById('dark').addEventListener('click',()=>{ 
     cuerpo.classList.toggle('dark-mode');
  });
-
-
-

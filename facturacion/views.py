@@ -1,40 +1,73 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render, redirect
 from facturacion.forms import FacturaForm
 from facturacion.models import Factura
 from django.contrib.auth.decorators import login_required
-from facturacion.models import Factura
-from servicios.forms import InsumoForm, ServicioForm
-from servicios.views import insumo, servicio
+
+from registro.models import Usuario, Vehículo
 
 
 @login_required(login_url='/login/')
-def factura(request,pk=0):
-    factura= FacturaForm(request.POST or None, request.FILES or None)
-    vehiculo_fac = ""
-    if pk != 0: 
-        vehiculo_fac = Factura.objects.get(id=pk) 
-#generar factura
+def factura(request):
+    usuarios = Usuario.objects.all()
+    vehiculos = Vehículo.objects.all()
+    factura_db = Factura.objects.all()
+    factura = FacturaForm()
     if request.method == 'POST':
-        factura.is_valid()
-        aux = factura.save()
-        pk = aux.id
-        vehiculo_fac = pk.vehículo
-        print('Factura abierta')
-        return redirect ('factura',pk)
+       
+        factura = FacturaForm(request.POST)
     
+        if factura.is_valid():
+            factura.save()
+            return redirect('factura')
+        else:
+            print("No es valido")
+        
     context = {
-        'factura': factura,
-        'servicio': servicio,
-        'forminsumo': insumo,
-        'vehiculo': vehiculo_fac,
+        'factura': factura_db,
+        'factura_form': factura,
+        'usuario': usuarios,
+        'vehiculo': vehiculos,
     }
     return render (request, 'facturacion/factura.html', context)
 
-# def detallefactura(request,id):
-#      factura= Factura.objects.get(id=id)
-#      print('la factura es: ', factura)
-#      vehiculo_fac = factura.vehículo
-#      context = {
-#          'vehiculo_fac' : vehiculo_fac
-#      }
-#      return render (request, 'facturacion/detalle-factura.html',context)
+
+def detallefactura(request, factura):
+    cr
+    
+    pass
+
+
+
+
+
+
+
+
+
+
+
+def editarFactura(request,id):
+    edit_factura = Factura.objects.get(id=id)
+    factura  = FacturaForm(request.POST or None, instance=edit_factura)
+    
+    context={
+        'factura': factura ,
+    }
+    if factura.is_valid() and request.method == 'POST':
+        factura .save()
+        return redirect('factura')
+    return render (request, 'facturacion/factura.html', context)  
+
+def eliminarFactura(request,id):
+    factura_d = Factura.objects.get(id=id)
+    factura_db = Factura.objects.all()
+    formulario = FacturaForm()
+    if request.method == 'POST':
+        factura_d.delete()
+        return redirect ('factura')
+    context = {
+        'factura_db': factura_db,
+        'formulario': formulario,
+        }
+    return render (request,'facturacion/deletefactura.html', context )    
+    

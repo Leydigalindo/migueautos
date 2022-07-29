@@ -24,7 +24,7 @@ def usuario(request):
         'nombre_eliminar': nombre_eliminar,
     }
     
-    return render(request, 'register/user.html', context)
+    return render (request, 'register/user.html', context)
 
 def usuariodelete(request,id):
     delete_user = Usuario.objects.get(id=id)
