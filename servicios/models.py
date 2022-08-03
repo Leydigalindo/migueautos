@@ -11,6 +11,7 @@ class Servicio(models.Model):
         PINTURA= 'Pintura', _('Pintura')
     tipodeservicio = models.CharField(max_length=10, choices=Tipodeservicio.choices, verbose_name=u"Seleccione el tipo de servicio")
     v_trabajo = models.IntegerField(default=0)
+    
 class Marca(models.Model):
     nombre= models.CharField(max_length=45, blank=False, unique= False, verbose_name=u"Nombre")    
     def __str__(self) -> str:

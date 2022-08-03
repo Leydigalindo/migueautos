@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from registro.forms import usuarioForm, vehiculoForm
 from registro.models import Usuario, Vehículo
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Create your views here.
 
 
@@ -16,6 +17,7 @@ def usuario(request):
     nombre_eliminar = 'Usuario'
     if formulario.is_valid():
         formulario.save()
+        messages.success(request, '¡Usuario registrado con exito!')
         return redirect('usuario')
     context = {
         'usuario_db': usuario_db,	
