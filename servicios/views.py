@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 @login_required(login_url='/login/')
-def servicio (request):
+def servicio(request):
     servicio_db = Servicio.objects.all()
    
     servicio = ServicioForm(request.POST or None, request.FILES or None)
@@ -47,7 +47,7 @@ def eliminarServicio(request,id):
 def insumo(request):
     #recorrer datos de la base de datos
     insumo_db = Insumo.objects.all()
-    
+    marca_db = Marca.objects.all()
     
     #formularios
     marca = MarcaForm(request.POST or None)

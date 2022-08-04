@@ -1,19 +1,19 @@
-{% extends "basepag.html" %}
-{% load crispy_forms_tags %}
-{% load static %}
-{% block title %}
-Factura
-{% endblock title  %}
+    {% extends "basepag.html" %}
+    {% load crispy_forms_tags %}
+    {% load static %}
+    {% block title %}
+    Factura
+    {% endblock title  %}
 
 
-{% block navbar %}
-{% include "components/navbar.html" %}
-{% endblock navbar %}
+    {% block navbar %}
+    {% include "components/navbar.html" %}
+    {% endblock navbar %}
 
-{% block body %}
+    {% block body %}
 
 
-{% block content %}
+    {% block content %}
 <div class="container flex flex-wrap justify-center gap-10 mx-auto overflow-hidden">
     <div class="container flex flex-wrap justify-center gap-10 mx-auto overflow-hidden">
         <div
@@ -57,7 +57,7 @@ Factura
                             <select
                                 class="block w-full px-4 py-2 leading-normal text-gray-700 bg-white border border-gray-300 rounded-lg appearance-none focus:outline-none select2"
                                 name="Vehiculo">
-                                <option selected disable="true">---------</option>
+                                <option selected disable="true">---Seleccione la placa:---</option>
                                 {% for vehicu in vehiculo %}
                                 <option data-index-number="{{vehicu.usuario_id}}" value="{{vehicu.id}}">{{vehicu.placa}}
                                 </option>
