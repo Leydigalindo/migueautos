@@ -25,4 +25,6 @@ class Vehículo(models.Model):
         MAL = 'M', _('Mal (M)')
     estado = models.CharField(max_length=10,choices=Estado.choices, verbose_name=u"Estado")
     usuario=models.ForeignKey(Usuario,on_delete=models.SET_NULL, null=True,verbose_name=u"Usuario")
-      
+    
+    def __str__(self) -> str:
+        return '%s'%(self.placa)

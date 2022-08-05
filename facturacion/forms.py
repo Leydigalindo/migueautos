@@ -12,4 +12,4 @@ class DetalleForm(forms.ModelForm):
         model = detalleFactura
         fields = ['servicio', 'insumo', 'total', 'cantidad']
         
-        
+            

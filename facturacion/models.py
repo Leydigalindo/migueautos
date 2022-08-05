@@ -13,13 +13,13 @@ class Factura(models.Model):
         ACTIVO = 'Activo', _('Activa')
         FINAL = 'Finalizada', _('Finalizada')
     estado = models.CharField(max_length=11,choices=Estadofac.choices,default = Estadofac.ACTIVO, verbose_name=u"Estado")
-     
+    total = models.IntegerField(blank=True, default=0.00) 
     def __str__(self) -> str:
         return '%s %s %s'%(self.vehiculo,self.fecha, self.Usuario)
 
 class detalleFactura(models.Model):
-    total = models.IntegerField(default=0.00)
-    cantidad = models.IntegerField(default=0.00)
+    total = models.IntegerField(blank=True, default=0.00)
+    cantidad = models.IntegerField(default=0)
     
     factura = models.ForeignKey(Factura, on_delete=models.SET_NULL, null=True, verbose_name='Factura')
     servicio = models.ForeignKey(Servicio, on_delete=models.SET_NULL, null=True, verbose_name="servicio")
