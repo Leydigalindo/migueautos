@@ -58,6 +58,7 @@ def editarUsuario(request,id):
 @login_required(login_url='/login/')
 def vehiculo(request):
     vehiculo_db = Vehículo.objects.all()
+    usuario_db=Usuario.objects.all()
     vehiculo = vehiculoForm(request.POST or None)
     if vehiculo.is_valid():
         vehiculo.save()
@@ -65,6 +66,7 @@ def vehiculo(request):
     context = {
         'vehiculo_db': vehiculo_db,
         'vehiculo': vehiculo,
+        'usuario_db':usuario_db,
     }
     return render (request, 'register/vehiculo.html', context)
 
