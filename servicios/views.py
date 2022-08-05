@@ -64,6 +64,7 @@ def insumo(request):
         'insumo_db': insumo_db,	
         'insumo': insumo,
         'marca': marca,
+        'marca_db':marca_db,
     }
     return render (request, 'servicios/insumo.html', context)
 
