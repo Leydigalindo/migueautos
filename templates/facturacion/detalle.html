@@ -1,0 +1,87 @@
+{% extends "basepag.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+Factura
+{% endblock title  %}
+
+
+{% block navbar %}
+{% include "components/navbar.html" %}
+{% endblock navbar %}
+
+{% block body %}
+
+
+{% block content %}
+
+<div>
+    <!-- <form action="" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+    </form> -->
+
+    <!-- formulario modificado -->
+    <form action="" method="POST">
+        {% csrf_token %}
+
+
+        <!-- servicios -->
+        <div id="div_id_servicio" class="mb-3"> <label for="id_servicio"
+                class="block text-gray-700 text-sm font-bold mb-2">
+                Servicio<span class="asteriskField">*</span> </label>
+            <div class="mb-3">
+                <div class="relative">
+                    <select
+                        class="bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-gray-700"
+                        name="servicio">
+                        <option value="">---------</option>
+                        {% for servicio in servicios %}
+                        <option value="{{servicio.id}}">{{servicio.tipodeservicio}}</option>  
+                        {% endfor %}
+                    </select>
+                   
+                </div>
+            </div>
+        </div>
+
+
+        <!-- insumo -->
+
+        <div id="div_id_insumo" class="mb-3"> <label for="id_insumo" class="block text-gray-700 text-sm font-bold mb-2">
+                Insumo<span class="asteriskField">*</span> </label>
+            <div class="mb-3">
+                <div class="relative">
+                    <select
+                        class="bg-white focus:outline-none border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal text-gray-700"
+                        name="insumo">
+                        <option value="">---------</option>
+                        {% for insumo in insumos  %}
+                        <option value="{{insumo.id}}">{{insumo.nombre}} {{insumo.cantidad}}</option> 
+                        {% endfor %}
+                    </select>
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <div id="div_id_total" class="mb-3"> <label for="id_total" class="block text-gray-700 text-sm font-bold mb-2">
+                Total
+            </label><input type="text" id="disabled-input" aria-label="{{total}}" class="mb-6 bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{total}}" disabled>
+            </div>
+
+
+        <div id="div_id_cantidad" class="mb-3"> <label for="id_cantidad"
+                class="block text-gray-700 text-sm font-bold mb-2">
+                Cantidad<span class="asteriskField">*</span> </label> <input type="number" name="cantidad" value="21"
+                class="numberinput rounded-lg py-2 border-gray-300 appearance-none w-full bg-white block leading-normal px-4 text-gray-700 focus:outline-none border"
+                required="" id="id_cantidad"> </div>
+
+        <button class="btn btn-success">enviar</button>
+    </form>
+
+
+</div>
+{% endblock content %}
+{% endblock body %}

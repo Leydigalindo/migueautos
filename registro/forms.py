@@ -8,12 +8,12 @@ class usuarioForm(forms.ModelForm):
         fields = '__all__'
         
 class vehiculoForm(forms.ModelForm):
+    
     class Meta:
         model = Vehículo
         fields = '__all__'
         widgets = {
-             'fecha':forms.DateInput(format=('%m/%d%y'),
-                                     attrs ={'placeholder':'Seleccione una fecha','type':'date'}) 
+             'fecha':forms.DateInput(attrs ={'placeholder':'Seleccione una fecha','type':'date'}) 
         }
 
     
