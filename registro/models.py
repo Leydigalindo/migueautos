@@ -15,7 +15,7 @@ class Usuario(models.Model):
 
 class Vehículo(models.Model):
     placa = models.CharField(max_length=7, unique=True,verbose_name="Placa")
-    fecha = models.DateField(verbose_name="Fecha de Registro")
+    fecha = models.DateField(verbose_name="Fecha de Registro", auto_now_add=True)
     modelo = models.CharField(max_length=25)
     color= models.CharField(max_length=15, verbose_name="Color del vehículo")
     class Estado(models.TextChoices):
