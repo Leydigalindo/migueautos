@@ -48,7 +48,7 @@ def editarUsuario(request,id): # se define la funcion para editar un usuario
     formulario = usuarioForm(request.POST or None, request.FILES or None, instance=edit_user) # se carga el formulario
     if formulario.is_valid() and request.method == 'POST': # si el formulario es valido y el metodo es post
         formulario.save() # se guarda el formulario
-        messages.success(request, '¡Usuario %s fue editado exitosamente!' %edit_user.nombre  ) # se muestra un mensaje de exito
+        messages.success(request, '¡Usuario %s fue editado exitosamente!' %edit_user.nombre) # se muestra un mensaje de exito
         return redirect('usuario') # se redirecciona a la url
     context = { # se define el contexto
         'formulario': formulario,
