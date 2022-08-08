@@ -114,7 +114,7 @@ def detallefactura(request, pk):  # pk es el id de la factura
                         total = detalleFactura.objects.filter(factura_id=factura_u.id).values("factura").annotate(
                             total_definitivo=Sum(('total'), output_field=models.IntegerField()))[0]["total_definitivo"]
                         Factura.objects.filter(id=pk).update(
-                            neto_pagar=total
+                            total=total
                         )
                     else:
                         total = 0
@@ -177,7 +177,7 @@ def detallefactura(request, pk):  # pk es el id de la factura
                             total = detalleFactura.objects.filter(factura_id=factura_u.id).values("factura").annotate(
                                 total_definitivo=Sum(('total'), output_field=models.IntegerField()))[0]["total_definitivo"]
                             Factura.objects.filter(id=pk).update(
-                                neto_pagar=total
+                                total=total
                             )
                         else:
                             total = 0
@@ -203,7 +203,7 @@ def detallefactura(request, pk):  # pk es el id de la factura
                             total = detalleFactura.objects.filter(factura_id=factura_u.id).values("factura").annotate(
                                 total_definitivo=Sum(('total'), output_field=models.IntegerField()))[0]["total_definitivo"]
                             Factura.objects.filter(id=pk).update(
-                                neto_pagar=total
+                                total=total
                             )
                         else:
                             total = 0

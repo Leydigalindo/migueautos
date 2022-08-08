@@ -181,18 +181,7 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#Alertas de mensajes 
 
-from django.contrib.messages import constants as messages
-
-
-MESSAGE_TAGS = {
-        messages.DEBUG: 'alert-secondary',
-        messages.INFO: 'alert alert-info shadow-lg',
-        messages.SUCCESS: 'alert alert-success shadow-lg',
-        messages.WARNING: 'alert alert-warning shadow-lg',
-        messages.ERROR: 'alert alert-error shadow-lg',
- }
 
 #GESTION DE LOGUEOS
 

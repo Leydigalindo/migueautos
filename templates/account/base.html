@@ -1,30 +1,52 @@
-{% load tailwind_tags %}
+
+{% load tailwind_tags %} 
+
 {% load static %}
+<!DOCTYPE html>
 <html lang="es">
   <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     {% tailwind_css %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
-    <script src="{% static 'js/main.js'%}"></script>
-    <title>{% block head_title %}{% endblock %}</title>
+    {% load crispy_forms_tags %}
+    {% tailwind_preload_css %}
+     {% comment %} LINKEO DE
+    DATATABLES {% endcomment %}
+    <script type="text/javascript" src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/libs/daisyiu.css' %}">
 
+    <link rel="stylesheet" type="text/css" href="{% static 'css/libs/flowbite.css' %}"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <base href="/" />
+    <title>{% block title %}{% endblock title %}</title>
   </head>
-  <body>
-    {% block body %}
-  <div>
-  {% block content %}
-  {% if messages %}
-  <div>
-    <strong>Messages:</strong>
-    <ul>
-      {% for message in messages %}
-      <li>{{message}}</li>
-      {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
-  {% endblock content %}
-  </div>
-    {% endblock body%}
-   
-  </body>
+
+  <body >
+    {% block content %}
+    
+    {% endblock content %}
+
+
+    <div class="acces">
+      {% block accesibilidad %}
+      {% include 'components/acces.html' %} 
+      {%endblock accesibilidad %}
+    </div>
+
+    <script src="{% static 'js/libs/flowbite.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/carousel-code.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/select2/select2.js' %}"></script>
+    <script type="application/json" src="{% static 'js/toastr.js.map' %}"></script>
+    <script type="text/javascript" src="{% static 'js/toastr.min.js' %}"></script> 
+    <script type="text/javascript" src="{% static 'js/select2/select2.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/open-accessibility/open-accessibility.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/open-accessibility/locale.min.js' %}"></script>
+{% block footers %}
+{% include 'components/footer.html' %}
+{% endblock footers %}   
+
+</body>
+
 </html>
