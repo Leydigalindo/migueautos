@@ -1,12 +1,11 @@
 
-from multiprocessing import context
+
 from django.shortcuts import render, redirect
 from registro.forms import usuarioForm, vehiculoForm
 from registro.models import Usuario, Vehículo
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 # Create your views here.
-
 
 # lOGICA DE USUARIO (EDITAR ELIMINAR Y OTRAS FUNCIONES)
 @login_required(login_url='/login/')
@@ -80,10 +79,9 @@ def editarVehiculo(request,id): # se define la funcion para
     edit_vehiculo = Vehículo.objects.get(id=id) # se obtiene el vehiculo
     formulario_vehiculo = vehiculoForm(request.POST or None, instance=edit_vehiculo) # se carga el formulario
     usuario_db = Usuario.objects.all() # se carga la base de datos para el select de usuario 
-    print(formulario_vehiculo)
+
     if formulario_vehiculo.is_valid() and request.method == 'POST': # si el formulario es valido y el metodo es post
         formulario_vehiculo.save() # se guarda el formulario
-        print(edit_vehiculo.usuario) # se imprime el usuario
         messages.success(request, '¡Vehiculo %s fue editado exitosamente!' %edit_vehiculo.placa) # se muestra un mensaje de exito
         return redirect('vehiculo') # se redirecciona a la url
     context={ # se define el contexto
