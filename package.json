@@ -1,6 +1,13 @@
 {
   "dependencies": {
+    "cross-env": "^7.0.3",
     "daisyui": "^2.14.2",
     "flowbite": "^1.4.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.8",
+    "postcss-import": "^14.1.0",
+    "postcss-nesting": "^10.1.10",
+    "rimraf": "^3.0.2"
   }
 }

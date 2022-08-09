@@ -7,11 +7,12 @@ class ServicioForm(forms.ModelForm):
         model= Servicio
         fields='__all__' 
         #fields= '__all__'
+        
 class InsumoForm(forms.ModelForm):
     class Meta:
         model = Insumo
         fields='__all__' 
-    
+        
         #fields = '__all__'
         
 class MarcaForm(forms.ModelForm):

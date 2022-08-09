@@ -50,7 +50,7 @@ module.exports = {
         extend: {
             colors: {
                 'light-white' : '#F7F7F2',
-                'light-beige' : '#E4E6C3',
+                'light-dark' : '#2a303c',
                 'light-green' : '#899878',
             },
         },

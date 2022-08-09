@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from servicios.forms import  InsumoForm, MarcaForm, ServicioForm
 from servicios.models import Insumo, Marca, Servicio
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 @login_required(login_url='/login/')
@@ -53,16 +54,18 @@ def insumo(request):
     marca = MarcaForm(request.POST or None)
     insumo = InsumoForm(request.POST or None, request.FILES or None)
     #validar formularios
-    if insumo.is_valid():
+    if insumo.is_valid() and request.method == 'POST':
         insumo.save()
         return redirect('insumo')
-    if marca.is_valid():
+    if marca.is_valid() and request.method == 'POST':
         marca.save()
+        messages.success(request,'Marca creada correctamente')
         return redirect('insumo')
     #
     context = {
         'insumo_db': insumo_db,	
         'insumo': insumo,
+        'marcas': marca_db,
         'marca': marca,
     }
     return render (request, 'servicios/insumo.html', context)

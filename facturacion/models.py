@@ -24,3 +24,6 @@ class detalleFactura(models.Model):
     factura = models.ForeignKey(Factura, on_delete=models.SET_NULL, null=True, verbose_name='Factura')
     servicio = models.ForeignKey(Servicio, on_delete=models.SET_NULL, null=True, verbose_name="servicio")
     insumo = models.ForeignKey(Insumo,on_delete=models.SET_NULL,null=True, verbose_name="Insumo")
+
+    def __str__(self) -> str:
+        return '%s %s'%(self.total, self.cantidad)
