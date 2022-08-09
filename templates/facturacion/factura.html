@@ -1,19 +1,19 @@
-    {% extends "basepag.html" %}
-    {% load crispy_forms_tags %}
-    {% load static %}
-    {% block title %}
-    Factura
-    {% endblock title  %}
+{% extends "basepag.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}
+Factura
+{% endblock title  %}
 
 
-    {% block navbar %}
-    {% include "components/navbar.html" %}
-    {% endblock navbar %}
+{% block navbar %}
+{% include "components/navbar.html" %}
+{% endblock navbar %}
 
-    {% block body %}
+{% block body %}
 
 
-    {% block content %}
+{% block content %}
 <div class="container flex flex-wrap justify-center gap-10 mx-auto overflow-hidden">
     <div class="container flex flex-wrap justify-center gap-10 mx-auto overflow-hidden">
         <div
@@ -22,59 +22,61 @@
                 class="px-2 mb-2 font-sans text-xl font-bold text-center break-normal dark:text-white lg:mt-0 md:text-2xl">
                 Factura</h1>
 
+            {% comment %} {% csrf_token %}
+            <div id="div_id_Usuario" class="mb-3">
+                <label for="id_Usuario" class="block mb-2 text-sm font-bold text-black">
+                    Usuario<span class="asteriskField">*</span> </label>
+                <div class="mb-3">
+                    <div class="relative">
+                        <select
+                            class="block w-full px-4 py-2 leading-normal text-gray-700 bg-white border border-gray-300 rounded-lg appearance-none focus:outline-none select1"
+                            name="Usuario">
+                            <option selected disable="true">---------</option>
+                            {% for user in usuario  %}
+                            <option value="{{user.id}}">{{user.nombre}}</option>
+                            {% endfor %}
+                        </select>
+                        <div
+                            class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
+                            <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_vehiculo" class="mb-3"> <label for="id_vehiculo"
+                    class="block mb-2 text-sm font-bold text-gray-700">
+                    Vehículo<span class="asteriskField">*</span> </label>
+                <div class="mb-3">
+                    <div class="relative">
+                        <select
+                            class="block w-full px-4 py-2 leading-normal text-gray-700 bg-white border border-gray-300 rounded-lg appearance-none focus:outline-none select2"
+                            name="Vehiculo">
+                            <option selected disable="true">---Seleccione la placa:---</option>
+                            {% for vehicu in vehiculo %}
+                            <option data-index-number="{{vehicu.usuario_id}}" value="{{vehicu.id}}">{{vehicu.placa}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" for="my-modal-3" value="Abrir factura"
+                    class="modal-button text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">Generar
+                    factura</button>
+            </div>
+            {% endcomment %}
             <form method="POST">
-                {% comment %} {% csrf_token %}
-                <div id="div_id_Usuario" class="mb-3">
-                    <label for="id_Usuario" class="block mb-2 text-sm font-bold text-black">
-                        Usuario<span class="asteriskField">*</span> </label>
-                    <div class="mb-3">
-                        <div class="relative">
-                            <select
-                                class="block w-full px-4 py-2 leading-normal text-gray-700 bg-white border border-gray-300 rounded-lg appearance-none focus:outline-none select1"
-                                name="Usuario">
-                                <option selected disable="true">---------</option>
-                                {% for user in usuario  %}
-                                <option value="{{user.id}}">{{user.nombre}}</option>
-                                {% endfor %}
-                            </select>
-                            <div
-                                class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none">
-                                <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20">
-                                    <path
-                                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z">
-                                    </path>
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="div_id_vehiculo" class="mb-3"> <label for="id_vehiculo"
-                        class="block mb-2 text-sm font-bold text-gray-700">
-                        Vehículo<span class="asteriskField">*</span> </label>
-                    <div class="mb-3">
-                        <div class="relative">
-                            <select
-                                class="block w-full px-4 py-2 leading-normal text-gray-700 bg-white border border-gray-300 rounded-lg appearance-none focus:outline-none select2"
-                                name="Vehiculo">
-                                <option selected disable="true">---Seleccione la placa:---</option>
-                                {% for vehicu in vehiculo %}
-                                <option data-index-number="{{vehicu.usuario_id}}" value="{{vehicu.id}}">{{vehicu.placa}}
-                                </option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex justify-center">
-                    <button type="submit" for="my-modal-3" value="Abrir factura"
-                        class="modal-button text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">Generar
-                        factura</button>
-                </div>
-                {% endcomment %}
                 {% csrf_token %}
                 {{form|crispy}}
-                <button>enviar</button>
+                <div class="flex justify-center">
+                <button type="submit" for="my-modal-3" value="Abrir factura"
+                class="modal-button text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-600 dark:focus:ring-blue-800">Generar
+                factura</button>
+            </div>
             </form>
         </div>
     </div>

@@ -40,9 +40,6 @@ def factura(request):
         else:
             print("formulario invalido")
     else:
-        print(f'No entra')
-        messages.warning(
-            request, f'Ups! Parece que no estas generando una factura')
         factura = FacturaForm()
 
     context = {
@@ -121,7 +118,7 @@ def detallefactura(request, pk):  # pk es el id de la factura
 
                     messages.success(
                         request, f' se agregó {producto} a la factura correctamente!')
-                    return redirect('factura-detalle', pk=pk)
+                    return redirect('verfactura', pk=pk)
                 else:
                     anterior = detalleFactura.objects.filter(
                         factura_id=pk, insumo_id=request.POST['insumo'])
@@ -226,13 +223,13 @@ def detallefactura(request, pk):  # pk es el id de la factura
     return render(request, "facturacion/detalle.html", context)
 
 
-def viewFac(request, pk):
-    factura = Factura.objects.get(id=pk)
-    detalles = detalleFactura.objects.filter(factura_id=pk)
-    print(detalles)
+def viewFac(request, pk): # se genera la vista para ver los detalles de cada factura 
+    factura = Factura.objects.get(id=pk) 
+    detail = detalleFactura.objects.filter(factura_id=pk)
+    print(detail)
     context = {
-        "factura": factura,
-        "detalles": detalles,
+        "facturas": factura,
+        "detalles": detail,
     }
     return render(request, 'facturacion/verfactura.html', context)
 
